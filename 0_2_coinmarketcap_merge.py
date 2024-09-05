@@ -36,4 +36,10 @@ def coinmarkey_cap_page_detail_merge():
     # 将合并后的数据保存为新的csv文件
     merged_file_path = 'outputs/sec_scrape/coinmarketcap_detail.csv'  # 请将your_merged_file_path替换为你想要保存的文件路径
     merged_df.to_csv(merged_file_path, index=False)
-coinmarkey_cap_page_detail_merge()
+# coinmarkey_cap_page_detail_merge()
+
+def clean_duplicate():
+    df = pd.read_csv("outputs/sec_scrape/coinmarketcap_detail.csv", encoding='latin-1')
+    df.drop_duplicates()
+    df.to_csv("outputs/sec_scrape/coinmarketcap_detail.csv", index=False)
+clean_duplicate()
